@@ -31,7 +31,7 @@ except:
 
 # Load config
 with open(CWD + '/config/config.yml') as f:
-    config = yaml.load(f, Loader=yaml.FullLoader)
+    config = yaml.load(f, Loader=yaml.SafeLoader)
 
     def fixuml(x):
         '''Fix wrong coding of äüö (German language only)'''
@@ -44,7 +44,7 @@ with open(CWD + '/config/config.yml') as f:
     client = commands.Bot(command_prefix = config['main']['prefix'])
 
 with open(CWD + '/data/dailycoins.yml') as f:
-    daily = yaml.load(f, Loader=yaml.FullLoader)
+    daily = yaml.load(f, Loader=yaml.SafeLoader)
 
 # Bot
 @client.event
